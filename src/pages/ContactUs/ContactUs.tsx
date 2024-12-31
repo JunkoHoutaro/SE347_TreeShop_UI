@@ -62,7 +62,7 @@ export function ContactUs() {
                     <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
                         <TextInput
                             label="Tên"
-                            placeholder="Nguyễn Thị Ánh"
+                            placeholder="Nguyễn Văn A"
                             name="name"
                             variant="filled"
                             required
@@ -70,7 +70,7 @@ export function ContactUs() {
                         />
                         <TextInput
                             label="Email"
-                            placeholder="nguyenanh@gmail.com"
+                            placeholder="abcxyz@gmail.com"
                             name="email"
                             variant="filled"
                             required
@@ -79,7 +79,7 @@ export function ContactUs() {
                     </SimpleGrid>
                     <TextInput
                         label="Số điện thoại"
-                        placeholder="0395216485"
+                        placeholder="0987654321"
                         name="phone"
                         variant="filled"
                         required
@@ -87,7 +87,7 @@ export function ContactUs() {
                     />
                     <TextInput
                         label="Địa chỉ"
-                        placeholder="20A, xã Tân Khánh, huyện Vụ Bản, tỉnh Nam Định"
+                        placeholder="123 Đường ABC, thành phố X, tỉnh Y"
                         name="location"
                         variant="filled"
                         required

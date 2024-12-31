@@ -5,10 +5,9 @@ import shipper from "../../assets/aboutUs/shipper.jpg";
 import order from "../../assets/aboutUs/order.jpg";
 import delivery from "../../assets/aboutUs/delivery.jpg";
 import planting from "../../assets/aboutUs/planting.png";
-import anh from "../../assets/aboutUs/1.png";
-import phong from "../../assets/aboutUs/2.png";
-import hoang from "../../assets/aboutUs/3.png";
-import vu from "../../assets/aboutUs/4.png";
+import hao from "../../assets/aboutUs/hao.jpg";
+import na from "../../assets/aboutUs/na.jpg";
+import dat from "../../assets/aboutUs/dat.jpg";
 // import { title } from "process";
 const data = [
     {
@@ -34,24 +33,19 @@ const data = [
 ]
 const info = [
     {
-        image: anh,
-        name: "Nguyễn Thị Ánh",
-        infomation: "FrontEnd Developer",
+        image: hao,
+        name: "Nguyễn Phú Hào",
+        infomation: "Nhóm trưởng",
     },
     {
-        image: phong,
-        name: "Đặng Hoàng Phong",
-        infomation: "BackEnd Developer",
+        image: na,
+        name: "Lê Nguyễn Nhật Anh",
+        infomation: "Thành viên",
     },
     {
-        image: hoang,
-        name: "Nguyễn Thị Ánh",
-        infomation: "BackEnd Developer",
-    },
-    {
-        image: vu,
-        name: "Nguyễn Thị Ánh",
-        infomation: "FrontEnd Developer",
+        image: dat,
+        name: "Nguyễn Tấn Đạt",
+        infomation: "Thành viên",
     },
 ]
 const AboutUs = () => {
@@ -81,7 +75,7 @@ const AboutUs = () => {
                 <Title size={"h2"}>Thành viên nhóm</Title>
             </Container>
             <Container size={"xl"}>
-                <SimpleGrid cols={{base: 2, sm: 4}} mt="xl">
+                <SimpleGrid cols={{base: 2, sm: 3}} mt="xl">
                     {
                         info.map((item) => (
                             <Card>
