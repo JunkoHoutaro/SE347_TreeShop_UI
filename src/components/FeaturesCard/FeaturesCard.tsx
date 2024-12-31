@@ -12,31 +12,31 @@ import {
 import classes from './FeaturesCard.module.css';
 import { IconPlant } from '@tabler/icons-react';
 import { IconCar } from '@tabler/icons-react';
-import { IconPigMoney } from '@tabler/icons-react';
+import { IconShoppingCart } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 import { useHover } from '@mantine/hooks';
 
 const mockdata = [
     {
         id: 1,
-        title: 'Quyết định mua cây',
+        title: 'Mua cây dễ dàng ngay tại nhà',
         description:
-            'Chọn từ hàng trăm loại cây và cây bụi không có sẵn tại vườn ươm địa phương của bạn - tất cả đều thoải mái trên chiếc ghế dài của bạn. Bỏ qua chuyến đi và lên kế hoạch cho cây trồng của bạn!',
-        icon: IconPlant,
+            'Khám phá hàng trăm loại cây và cây bụi mà bạn khó có thể tìm thấy ở các vườn ươm gần nhà. Tất cả đều có sẵn để bạn đặt mua trực tiếp từ nhà mình. Không cần phải ra ngoài, chỉ cần ngồi lại và lên kế hoạch cho khu vườn của bạn thôi!',
+        icon: IconShoppingCart,
     },
     {
         id: 2,
-        title: 'Tìm đến chúng tôi',
+        title: 'Giao hàng nhanh chóng',
         description:
-            'Chúng tôi vận chuyển điên cuồng nhanh chóng. Vì vậy, hãy ngồi lại, thư giãn, uống cocktail và chờ đợi cây trồng của bạn đến qua FedEx Ground. Hầu hết mọi thứ về điều này đều có thể được thực hiện ngay bây giờ.',
+            'Chúng tôi sẽ giao cây tận nơi một cách nhanh chóng! Bạn chỉ cần ở nhà và đợi đơn vị vận chuyển mang cây đến tận nơi. Với đơn hàng trong nội thành, chúng tôi có thể giao hỏa tốc trong ngày!',
         icon: IconCar,
     },
     {
         id: 3,
-        title: 'Phát triển lớn mạnh',
+        title: 'Giúp cây phát triển khỏe mạnh',
         description:
-            'Chúng tôi làm mọi thứ ngoại trừ trồng cây (chúng tôi đã có những chú lùn của chúng tôi làm việc đó). Với nhiều thập kỷ kiến thức kết hợp, chúng tôi cung cấp cho bạn các nguồn lực để cây trồng của bạn phát triển mạnh!',
-        icon: IconPigMoney,
+            'Chúng tôi sẽ cung cấp tất cả những gì bạn cần để cây trồng của bạn phát triển thật tốt. Với kinh nghiệm lâu năm, chúng tôi sẽ giúp bạn chăm sóc cây xanh đúng cách để cây luôn khỏe mạnh và phát triển mạnh mẽ.',
+        icon: IconPlant,
     },
 ];
 

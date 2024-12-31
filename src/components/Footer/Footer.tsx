@@ -8,7 +8,7 @@ import React from "react";
 import { Text, Container, ActionIcon, Group, rem, Image, Title, TypographyStylesProvider, GridCol, Grid } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import classes from "./Footer.module.css";
-import logo from "../../assets/images/logoTree.png";
+import logo from "../../assets/images/logoTree1.png";
 
 const data = [
     {
@@ -65,9 +65,9 @@ export function Footer() {
                     <GridCol span={{ base: 6, xs: 3 }}>
                         <div className={classes.logo}>
                             <Image src={logo} w={200}></Image>
-                            <Text size="xs" c="dimmed" className={classes.description}>
+                            {/* <Text size="xs" c="dimmed" className={classes.description}>
                                 Thiên nhiên sở hữu biển rộng rừng xinh, bình yên là khi thiên nhiên chiếu cố đến mình.
-                            </Text>
+                            </Text> */}
                         </div>
                     </GridCol>
                     <GridCol span={{ xs: 1 }} visibleFrom="xs"></GridCol>
@@ -75,10 +75,10 @@ export function Footer() {
                         <div>
                             <Title size={"h5"}>THÔNG TIN LIÊN HỆ</Title>
                             <TypographyStylesProvider pl={0}>
-                                <Text size={"sm"} style={{ color: "gray" }}>Công ty TNHH MTV Cây Xanh Đẹp</Text>
-                                <Text size={"sm"} style={{ color: "gray" }}>Chi nhánh TpHCM: Ruby Garden, 2A Nguyễn Sỹ Sách, phường 15, quận Tân Bình, TP.HCM.</Text>
-                                <Text size={"sm"} style={{ color: "gray" }}>Chi nhánh Đồng Tháp: Ấp Tân Lợi, Xã Tân Qui, thành phố Sa Đéc, tỉnh Đồng Tháp</Text>
-                                <Text size={"sm"} style={{ color: "gray" }}>SDT: 1801608779</Text>
+                                <Text size={"sm"} style={{ color: "gray" }}>Công ty TNHH The Green</Text>
+                                <Text size={"sm"} style={{ color: "gray" }}>Chi nhánh TP.HCM: Đường Hàn Thuyên, Khu phố 6, TP. Thủ Đức, TP.HCM.</Text>
+                                <Text size={"sm"} style={{ color: "gray" }}>Chi nhánh Gia Lai: 220 Lê Thánh Tôn, TP.Pleiku, Gia Lai</Text>
+                                <Text size={"sm"} style={{ color: "gray" }}>SDT: 1234567890</Text>
                             </TypographyStylesProvider>
                         </div>
                     </GridCol>
@@ -92,7 +92,7 @@ export function Footer() {
             </Container>
             <Container className={classes.afterFooter} size={"xl"}>
                 <Text c="dimmed" size="sm">
-                    © 2023 - Gõ chữ tạo web
+                    © 2024 - The Green
                 </Text>
 
                 <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
