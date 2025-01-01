@@ -8,12 +8,17 @@ import {
 import classes from './ProductCollection.module.css';
 import cayAnQua from '../../assets/collection/cay-an-qua.jpg';
 import cayDecor from '../../assets/collection/cay-decor.jpg';
-import cayHangRao from '../../assets/collection/cay-hang-rao.jpg';
+// import cayHangRao from '../../assets/collection/cay-hang-rao.jpg';
 import cayHoa from '../../assets/collection/cay-hoa.jpg';
-import cayThucPham from '../../assets/collection/cay-thuc-pham.jpg';
-import cayTrongNha from '../../assets/collection/cay-trong-nha.jpg';
-import cayTruocHien from '../../assets/collection/cay-truoc-hien.jpg';
-import cayBongRam from '../../assets/collection/cay-phong-la-do.jpg';
+import cayThucPham from '../../assets/collection/cay-thuc-pham.jpeg';
+// import cayTrongNha from '../../assets/collection/cay-trong-nha.jpg';
+// import cayTruocHien from '../../assets/collection/cay-truoc-hien.jpg';
+// import cayBongRam from '../../assets/collection/cay-phong-la-do.jpg';
+import cayDeBan from '../../assets/collection/cay-de-ban.jpg';
+import cayPhongThuy from '../../assets/collection/cay-phong-thuy.jpg';
+import caySanVuon from '../../assets/collection/cay-san-vuon.jpg';
+import cayLamSach from '../../assets/collection/cay-duong-xi.jpg';
+
 import { useNavigate } from 'react-router-dom';
 // import { Carousel } from '@mantine/carousel';
 export type CollectionCard = {
@@ -23,13 +28,13 @@ export type CollectionCard = {
 };
 const items: CollectionCard[] = [
     { title: 'Cây ăn quả', image: cayAnQua, link: '#' },
-    { title: 'Cây decor', image: cayDecor, link: '#' },
-    { title: 'Cây hàng rào', image: cayHangRao, link: '#' },
+    { title: 'Cây trang trí', image: cayDecor, link: '#' },
     { title: 'Cây hoa', image: cayHoa, link: '#' },
-    { title: 'Cây thực phẩm', image: cayThucPham, link: '#' },
-    { title: 'Cây trong nhà', image: cayTrongNha, link: '#' },
-    { title: 'Cây trước hiên', image: cayTruocHien, link: '#' },
-    { title: 'Cây bóng râm', image: cayBongRam, link: '#' },
+    { title: 'Cây gia vị - thực phẩm', image: cayThucPham, link: '#' },
+    { title: 'Cây để bàn', image: cayDeBan, link: '#' },
+    { title: 'Cây phong thủy', image: cayPhongThuy, link: '#' },
+    { title: 'Cây sân vườn', image: caySanVuon, link: '#' },
+    { title: 'Cây làm sạch không khí', image: cayLamSach, link: '#' },
     // { title: 'Cây trước hiên', image: cayTruocHien, link: '#' },
 ]
 

@@ -48,11 +48,11 @@ const Banner = (arr: Array<ICardProps>) => {
                                         {item.title}
                                     </Title>
                                 </div>
-                                <div  className={classes.Button}>
+                                {/* <div  className={classes.Button}>
                                     <Button variant="white" color="dark" mt={150}>
                                         Xem thêm
                                     </Button>
-                                </div>
+                                </div> */}
                             </Paper>
                         </Center>
                     </Carousel.Slide>
