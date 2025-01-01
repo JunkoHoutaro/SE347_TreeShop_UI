@@ -75,7 +75,7 @@ export function Footer() {
                         <div>
                             <Title size={"h5"}>THÔNG TIN LIÊN HỆ</Title>
                             <TypographyStylesProvider pl={0}>
-                                <Text size={"sm"} style={{ color: "gray" }}>Công ty TNHH The Green</Text>
+                                <Text size={"sm"} style={{ color: "gray" }}>Công ty TNHH The Greenery</Text>
                                 <Text size={"sm"} style={{ color: "gray" }}>Chi nhánh TP.HCM: Đường Hàn Thuyên, Khu phố 6, TP. Thủ Đức, TP.HCM.</Text>
                                 <Text size={"sm"} style={{ color: "gray" }}>Chi nhánh Gia Lai: 220 Lê Thánh Tôn, TP.Pleiku, Gia Lai</Text>
                                 <Text size={"sm"} style={{ color: "gray" }}>SDT: 1234567890</Text>
@@ -92,7 +92,7 @@ export function Footer() {
             </Container>
             <Container className={classes.afterFooter} size={"xl"}>
                 <Text c="dimmed" size="sm">
-                    © 2024 - The Green
+                    © 2024 - The Greenery
                 </Text>
 
                 <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">

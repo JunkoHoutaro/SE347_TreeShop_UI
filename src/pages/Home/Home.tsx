@@ -4,7 +4,7 @@ import { Button, Card, Container, Grid, GridCol, SimpleGrid, Title } from "@mant
 import { ICardProps } from "../../components/Banner/Banner";
 import img1 from "../../assets/images/1.png";
 import img2 from "../../assets/images/2.png";
-// import img3 from "../../assets/images/3.png";
+import img3 from "../../assets/images/3.png";
 import img4 from "../../assets/images/4.png";
 import { ProductCollection } from "../../components/ProductCollection/ProductCollection";
 import { FeaturesCards } from "../../components/FeaturesCard/FeaturesCard";
@@ -20,8 +20,14 @@ import MauDon from '../../assets/products/hoa-mau-don.jpg';
 import Tulip from '../../assets/products/hoa-tulip.jpg';
 import cayCam from "../../assets/products/cay-cam.jpg";
 import cayLuu from "../../assets/products/cay-luu.jpg";
-import caySenDa from "../../assets/products/cay-sen-da.jpg";
+import caySenDa from "../../assets/products/sen-da.jpg";
 import hoaMauDon from "../../assets/products/hoa-mau-don.jpg";
+import cayHoaGiay from "../../assets/products/hoa-giay.jpg";
+import hoaLanHoDiep from "../../assets/products/lan-ho-diep.jpg";
+import hoaCucIndo from "../../assets/products/cuc-indo.jpg";
+import cayBangSing from "../../assets/products/cay-bang-sing.jpg";
+import cayXuongRong from "../../assets/products/xuong-rong-tho.png";
+import cayCau from "../../assets/products/cay-cau.jpg";
 import { useHover } from "@mantine/hooks";
 import { getListProduct } from "../../api/productApi";
 import { useEffect } from "react";
@@ -31,30 +37,30 @@ const data: ICardProps[] = [
         image: img1,
         // 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
         title: '',
-        category: 'Thiên nhiên',
+        category: '',
     },
     {
         id: 2,
         image: img2,
         // 'https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
         title: '',
-        category: 'Thiên nhiên',
+        category: '',
     },
 ];
 const backgroundData: ICardProps[] = [
-    // {
-    //     id: 1,
-    //     image: img3,
-    //     // 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    //     title: '',
-    //     category: 'Thiên nhiên',
-    // },
+    {
+        id: 1,
+        image: img3,
+        // 'https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+        title: '',
+        category: '',
+    },
     {
         id: 2,
         image: img4,
-        // 'https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+        // 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
         title: '',
-        category: 'Thiên nhiên',
+        category: '',
     },
 ];
 
@@ -83,12 +89,12 @@ const items: Product[] = [
     { id: 2, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
     { id: 3, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
     { id: 4, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { id: 5, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { id: 6, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    { id: 7, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    { id: 8, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    { id: 9, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    { id: 10, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
+    { id: 5, name: "Hoa giấy Thái Lan", img: cayHoaGiay, price: 250000 },
+    { id: 6, name: "Hoa lan hồ điệp mini", img: hoaLanHoDiep, price: 350000 },
+    { id: 7, name: "Hoa cúc Indo", img: hoaCucIndo, price: 95000 },
+    { id: 8, name: "Cây bàng Singapore", img: cayBangSing, price: 520000 },
+    { id: 9, name: "Cây xương rồng tai thỏ", img: cayXuongRong, price: 51000 },
+    { id: 10, name: "Cây cau tiểu trâm", img: cayCau, price: 134000 },
     // { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
 ];
 const Home = () => {
