@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     border-right: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-    margin-top: var(--mantine-spacing-md);
+    margin-top: 100px;
     /* position: fixed; */
     width: 300px;
   }

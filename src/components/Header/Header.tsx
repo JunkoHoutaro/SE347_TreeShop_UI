@@ -1,12 +1,14 @@
 import Logo from '../../assets/images/logo.png';
 import classes from './Header.module.css';
 import { useDisclosure } from "@mantine/hooks";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Container, Group, Text, ActionIcon, Divider, Autocomplete } from '@mantine/core';
 import { IconSearch, IconHeart, IconShoppingCart, IconUser, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube, IconBrandTiktok, IconBrandPinterest } from '@tabler/icons-react';
 
 const Header = () => {
+  const location = useLocation();
+
   return (
     <Container
       size=""
@@ -91,19 +93,64 @@ const Header = () => {
       {/* Navigation Menu */}
       <Group gap={30} style={{ margin: '8px' }}>
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <Text size="md" fw={700} style={{ cursor: 'pointer', color: 'black' }}>Trang chủ</Text>
+          <Text 
+            size="md" 
+            fw={location.pathname === '/' ? 700 : 500} 
+            style={{ 
+              cursor: 'pointer', 
+              color: location.pathname === '/' ? 'black' : 'gray' 
+            }}
+          >
+            Trang chủ
+          </Text>
         </Link>
         <Link to="/products" style={{ textDecoration: 'none' }}>
-          <Text size="md" fw={500} style={{ cursor: 'pointer', color: 'gray' }}>Sản phẩm</Text>
+          <Text 
+            size="md" 
+            fw={location.pathname === '/products' ? 700 : 500} 
+            style={{ 
+              cursor: 'pointer', 
+              color: location.pathname === '/products' ? 'black' : 'gray' 
+            }}
+          >
+            Sản phẩm
+          </Text>
         </Link>
         <Link to="/aboutUs" style={{ textDecoration: 'none' }}>
-          <Text size="md" fw={500} style={{ cursor: 'pointer', color: 'gray' }}>Về chúng tôi</Text>
+          <Text 
+            size="md" 
+            fw={location.pathname === '/aboutUs' ? 700 : 500} 
+            style={{ 
+              cursor: 'pointer', 
+              color: location.pathname === '/aboutUs' ? 'black' : 'gray' 
+            }}
+          >
+            Về chúng tôi
+          </Text>
         </Link>
         <Link to="/confirmation" style={{ textDecoration: 'none' }}>
-          <Text size="md" fw={500} style={{ cursor: 'pointer', color: 'gray' }}>Cam kết</Text>
+          <Text 
+            size="md" 
+            fw={location.pathname === '/confirmation' ? 700 : 500} 
+            style={{ 
+              cursor: 'pointer', 
+              color: location.pathname === '/confirmation' ? 'black' : 'gray' 
+            }}
+          >
+            Cam kết
+          </Text>
         </Link>
         <Link to="/contactUs" style={{ textDecoration: 'none' }}>
-          <Text size="md" fw={500} style={{ cursor: 'pointer', color: 'gray' }}>Liên hệ</Text>
+          <Text 
+            size="md" 
+            fw={location.pathname === '/contactUs' ? 700 : 500} 
+            style={{ 
+              cursor: 'pointer', 
+              color: location.pathname === '/contactUs' ? 'black' : 'gray' 
+            }}
+          >
+            Liên hệ
+          </Text>
         </Link>
       </Group>
     </Container>
