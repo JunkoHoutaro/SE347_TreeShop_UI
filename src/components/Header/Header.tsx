@@ -72,6 +72,7 @@ const Header = () => {
             <ActionIcon size="lg" radius="xl" variant="transparent" color="white">
               <IconUser size={20} />
             </ActionIcon>
+          </Link>
             {/* <Text size="sm" className={classes.iconLabel}>Tài khoản</Text> */}
           </div>
         </Group>
