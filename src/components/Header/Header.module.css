@@ -28,3 +28,26 @@
       background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
     }
   }
+.iconWithLabel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Thêm hiệu ứng pointer khi hover vào */
+}
+
+.iconLabel {
+  display: none; /* Ẩn label mặc định */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 30px; /* Đẩy label xuống dưới icon */
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 2px 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.iconWithLabel:hover .iconLabel {
+  display: block; /* Hiển thị label khi hover vào icon */
+}
