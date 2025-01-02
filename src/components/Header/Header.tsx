@@ -68,10 +68,12 @@ const Header = () => {
 
           {/* Tài khoản */}
           <div className={classes.iconWithLabel}>
+          <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
             <ActionIcon size="lg" radius="xl" variant="transparent" color="white">
               <IconUser size={20} />
             </ActionIcon>
             <Text size="sm" className={classes.iconLabel}>Tài khoản</Text>
+            </Link>
           </div>
         </Group>
       </Group>
