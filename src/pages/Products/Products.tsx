@@ -1,12 +1,8 @@
-import { Accordion, Checkbox, Container, Grid, GridCol, Slider, Title, Text, SimpleGrid, Pagination } from "@mantine/core";
+import { Accordion, Checkbox, Container, Grid, GridCol, Slider, Title, Text, SimpleGrid, Pagination, RangeSlider } from "@mantine/core";
 import classes from "./Products.module.css";
 import { IconPlant } from '@tabler/icons-react';
 import { IconMapPin } from '@tabler/icons-react';
-import cayCam from "../../assets/products/cay-cam.jpg";
-import cayLuu from "../../assets/products/cay-luu.jpg";
-import caySenDa from "../../assets/products/cay-sen-da.jpg";
-import hoaMauDon from "../../assets/products/hoa-mau-don.jpg";
-import ProductCard, { Product } from "../../components/ProductCard/ProductCard";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import { chunk } from "../Blogs/Blogs";
 import { useEffect, useState } from "react";
 import { getListProduct } from "../../api/productApi";
@@ -17,6 +13,12 @@ interface IProduct {
     img: string;
     price: number;
     type: string;
+}
+
+interface IFilters {
+    types: string[];
+    priceRange: [number, number];
+    regions: string[];
 }
 
 const data = [
@@ -46,42 +48,85 @@ const data = [
             { colection: 'Duyên hải nam trung bộ' },
         ]
     }
-]
+];
+
 const Products = () => {
-    // const products: Product[] = [
-    //     { id: 1, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    //     { id: 2, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    //     { id: 3, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    //     { id: 4, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    //     { id: 5, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    //     { id: 6, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    //     { id: 7, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    //     { id: 8, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    //     { id: 9, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    //     { id: 10, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    //     { id: 11, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    //     { id: 12, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    //     { id: 13, name: "Giống cây cam Vinh", img: cayCam, price: 360000 },
-    //     { id: 14, name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    //     { id: 15, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    //     { id: 16, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-    //     { id: 17, name: "Sen đá viền đỏ - Sen đá viền lửa", img: caySenDa, price: 51000 },
-    //     { id: 18, name: "Hoa mẫu đơn Nhật Bản - hồng phấn", img: hoaMauDon, price: 134000 },
-        
-    //     // { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
-    // ];
     const [activePage, setPage] = useState(1);
-    const [produ, setProducts] = useState<IProduct[]>([]);
+    const [products, setProducts] = useState<IProduct[]>([]);
+    const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
+    const [filters, setFilters] = useState<IFilters>({
+        types: [],
+        priceRange: [0, 2000000],
+        regions: []
+    });
+
     useEffect(() => {
         getListProduct().then((data) => {
-            console.log('data',data);
-            const newProd = data.products?.map((item : any) => 
-            ({ id: item.id, name: item.name, img: item.image, type: item.type.name, price: item.price } as IProduct))
+            const newProd = data.products?.map((item: any) => 
+                ({ id: item.id, name: item.name, img: item.image, type: item.type.name, price: item.price } as IProduct)
+            );
             setProducts(newProd);
-            console.log('newProd',newProd);
+            setFilteredProducts(newProd);
         });
-    }, [])
-    const dataProducts = chunk(produ, 8);
+    }, []);
+
+    const handleTypeFilter = (type: string, checked: boolean) => {
+        let newTypes = [...filters.types];
+        if (checked) {
+            newTypes.push(type);
+        } else {
+            newTypes = newTypes.filter(t => t !== type);
+        }
+        
+        const newFilters = { ...filters, types: newTypes };
+        setFilters(newFilters);
+        applyFilters(newFilters);
+    };
+
+    const handleRegionFilter = (region: string, checked: boolean) => {
+        let newRegions = [...filters.regions];
+        if (checked) {
+            newRegions.push(region);
+        } else {
+            newRegions = newRegions.filter(r => r !== region);
+        }
+        
+        const newFilters = { ...filters, regions: newRegions };
+        setFilters(newFilters);
+        applyFilters(newFilters);
+    };
+
+    const handlePriceRangeChange = (value: [number, number]) => {
+        const newFilters = { ...filters, priceRange: value };
+        setFilters(newFilters);
+        applyFilters(newFilters);
+    };
+
+    const applyFilters = (currentFilters: IFilters) => {
+        let filtered = [...products];
+
+        if (currentFilters.types.length > 0) {
+            filtered = filtered.filter(product => 
+                currentFilters.types.includes(product.type)
+            );
+        }
+
+        filtered = filtered.filter(product => 
+            product.price >= currentFilters.priceRange[0] && 
+            product.price <= currentFilters.priceRange[1]
+        );
+
+        if (currentFilters.regions.length > 0) {
+            filtered = filtered.filter(product => 
+                currentFilters.regions.includes(product.type)
+            );
+        }
+
+        setFilteredProducts(filtered);
+        setPage(1);
+    };
+
+    const dataProducts = chunk(filteredProducts, 8);
 
     return (
         <>
@@ -89,58 +134,70 @@ const Products = () => {
                 <GridCol span={{ base: 3, sm: 2.5 }} visibleFrom="xs">
                     <nav className={classes.navbar}>
                         <Title size={'h4'}>LỌC</Title>
-                        {
-                            data.map((item) => (
-                                <Accordion defaultValue="1">
-                                    <Accordion.Item value={item.value} key={item.value}>
-                                        <Accordion.Control icon={<item.icon color="#87BD41"></item.icon>}>{item.title}</Accordion.Control>
-                                        <Accordion.Panel>
-                                            {
-                                                item.collections.map((i) => (
-                                                    <Container m={10}>
-                                                        <Checkbox
-                                                            color="#1E3B27"
-                                                            label={i.colection}
-                                                        />
-                                                    </Container>
-                                                ))
-                                            }
-                                        </Accordion.Panel>
-                                    </Accordion.Item>
-                                </Accordion>
-                            ))
-                        }
+                        {data.map((item) => (
+                            <Accordion defaultValue="1" key={item.value}>
+                                <Accordion.Item value={item.value}>
+                                    <Accordion.Control icon={<item.icon color="#87BD41" />}>
+                                        {item.title}
+                                    </Accordion.Control>
+                                    <Accordion.Panel>
+                                        {item.collections.map((i) => (
+                                            <Container m={10} key={i.colection}>
+                                                <Checkbox
+                                                    color="#1E3B27"
+                                                    label={i.colection}
+                                                    onChange={(event) => {
+                                                        if (item.value === '1') {
+                                                            handleTypeFilter(i.colection, event.currentTarget.checked);
+                                                        } else {
+                                                            handleRegionFilter(i.colection, event.currentTarget.checked);
+                                                        }
+                                                    }}
+                                                />
+                                            </Container>
+                                        ))}
+                                    </Accordion.Panel>
+                                </Accordion.Item>
+                            </Accordion>
+                        ))}
                         <Container size={'xl'} m={20}>
                             <Text>Giá</Text>
-                            <Slider
-                                step={25}
+                            <RangeSlider
+                                min={0}
+                                max={2000000}
+                                step={100000}
                                 w={'80%'}
                                 color="#1E3B27"
                                 marks={[
-                                    { value: 25, label: '20k' },
-                                    { value: 50, label: '200k' },
-                                    { value: 85, label: '2tr' },
+                                    { value: 0, label: '0đ' },
+                                    { value: 1000000, label: '1tr' },
+                                    { value: 2000000, label: '2tr' },
                                 ]}
+                                value={filters.priceRange}
+                                onChange={handlePriceRangeChange}
                             />
                         </Container>
                     </nav>
                 </GridCol>
                 <GridCol span={{ base: 12, xs: 9, sm: 9.5 }} style={{ marginTop: '100px' }}>
-                    {/* <ProductCard items={items}/> */}
                     <SimpleGrid cols={{ base: 2, sm: 4 }} m="xl">
-                        {
-                            dataProducts[activePage - 1]?.map((item) => (
-                                <ProductCard item={item} />
-                            ))
-                        }
-
+                        {dataProducts[activePage - 1]?.map((item) => (
+                            <ProductCard key={item.id} item={item} />
+                        ))}
                     </SimpleGrid>
                 </GridCol>
-            </Grid >
+            </Grid>
             <Container display={'flex'} style={{ justifyContent: 'center' }}>
-                    <Pagination color="#1E3B27" total={dataProducts.length} value={activePage} onChange={setPage} mt="sm" />
-                </Container>
+                <Pagination 
+                    color="#1E3B27" 
+                    total={dataProducts.length} 
+                    value={activePage} 
+                    onChange={setPage} 
+                    mt="sm" 
+                />
+            </Container>
         </>
-    )
+    );
 };
+
 export default Products;

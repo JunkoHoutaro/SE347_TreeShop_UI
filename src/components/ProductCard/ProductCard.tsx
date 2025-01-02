@@ -9,6 +9,7 @@ export interface Product {
     name: string;
     img: string;
     price: number;
+    type?: string;
 }
 const ProductCard = ({ item }: { item: Product }) => {
     const vnd = new Intl.NumberFormat('vi');
