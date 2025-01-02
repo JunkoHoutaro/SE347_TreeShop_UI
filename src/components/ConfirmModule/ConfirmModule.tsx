@@ -15,7 +15,7 @@ export function ConfirmModule() {
                 <Grid styles={{ inner: { margin: 0, width: '100%' } }}>
                     <GridCol span={{ base: 12, sm: 6 }}>
                         <div className={classes.content}>
-                            <Title size={"h2"}>
+                            <Title size={"h3"}>
                                 Chúng Tôi Hứa Hẹn Một Trải Nghiệm Tốt Nhất Cho Bạn!
                             </Title>
                             <Text c="dimmed" mt="md" style={{ fontSize: "14px" }}>

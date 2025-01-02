@@ -1,4 +1,4 @@
-import Logo from '../../assets/images/logoTree.png';
+import Logo from '../../assets/images/logo.png';
 import classes from './Header.module.css';
 import { useDisclosure } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ const Header = () => {
       {/* Social Media và Account Section */}
       <Group  justify="space-between" w="100%" style={{ paddingLeft: 0 }}>
         {/* Social Media Icons */}
-        <Group gap="xs" bg="#1E3B27" p="xs" style={{ borderRadius: 'xl' }}>
+        <Group gap="xs" bg="#1E3B27" p="xs" style={{ borderRadius: '0 25px 25px 0' }}>
           <ActionIcon size="lg" radius="xl" variant="transparent" color="white">
             <IconBrandFacebook size={20} />
           </ActionIcon>
@@ -40,12 +40,12 @@ const Header = () => {
               alt="Logo"
               style={{ width: '50px', height: '50px' }}
             />
-            <Text fw="bold" size="lg">THE GREENERY</Text>
+            {/* <Text fw="bold" size="lg">THE GREENERY</Text> */}
           </Group>
         </Link>
 
         {/* User Actions */}
-        <Group gap="xs" bg="#1E3B27" p="xs" style={{ borderRadius: 'xl' }}>
+        <Group gap="xs" bg="#1E3B27" p="xs" style={{ borderRadius: '25px 0 0 25px' }}>
           {/* Yêu thích */}
           <div className={classes.iconWithLabel}>
             <ActionIcon size="lg" radius="xl" variant="transparent" color="white">
@@ -81,7 +81,7 @@ const Header = () => {
       {/* Search Bar */}
       <Autocomplete
         placeholder="Nhập sản phẩm tìm kiếm"
-        size="md"
+        size="sm"
         radius="xl"
         rightSection={<IconSearch />}
         style={{ margin: '8px 0', maxWidth: '400px', width: '100%' }}
@@ -89,21 +89,21 @@ const Header = () => {
       />
 
       {/* Navigation Menu */}
-      <Group gap={16} style={{ margin: '8px' }}>
+      <Group gap={30} style={{ margin: '8px' }}>
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <Text size="xl" fw={700} style={{ cursor: 'pointer', color: 'gray' }}>Trang chủ</Text>
+          <Text size="md" fw={700} style={{ cursor: 'pointer', color: 'black' }}>Trang chủ</Text>
         </Link>
         <Link to="/products" style={{ textDecoration: 'none' }}>
-          <Text size="xl" fw={700} style={{ cursor: 'pointer' }}>Sản phẩm</Text>
+          <Text size="md" fw={500} style={{ cursor: 'pointer', color: 'gray' }}>Sản phẩm</Text>
         </Link>
         <Link to="/aboutUs" style={{ textDecoration: 'none' }}>
-          <Text size="xl" fw={700} style={{ cursor: 'pointer' }}>Về chúng tôi</Text>
+          <Text size="md" fw={500} style={{ cursor: 'pointer', color: 'gray' }}>Về chúng tôi</Text>
         </Link>
         <Link to="/confirmation" style={{ textDecoration: 'none' }}>
-          <Text size="xl" fw={700} style={{ cursor: 'pointer' }}>Cam kết</Text>
+          <Text size="md" fw={500} style={{ cursor: 'pointer', color: 'gray' }}>Cam kết</Text>
         </Link>
         <Link to="/contactUs" style={{ textDecoration: 'none' }}>
-          <Text size="xl" fw={700} style={{ cursor: 'pointer' }}>Liên hệ</Text>
+          <Text size="md" fw={500} style={{ cursor: 'pointer', color: 'gray' }}>Liên hệ</Text>
         </Link>
       </Group>
     </Container>
