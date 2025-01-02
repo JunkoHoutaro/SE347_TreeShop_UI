@@ -51,7 +51,7 @@ const Header = () => {
             <ActionIcon size="lg" radius="xl" variant="transparent" color="white">
               <IconHeart size={20} />
             </ActionIcon>
-            <Text size="sm" className={classes.iconLabel}>Yêu thích</Text>
+            {/* <Text size="sm" className={classes.iconLabel}>Yêu thích</Text> */}
           </div>
 
           <Divider orientation="vertical" color="gray" />
@@ -61,7 +61,7 @@ const Header = () => {
             <ActionIcon size="lg" radius="xl" variant="transparent" color="white">
               <IconShoppingCart size={20} />
             </ActionIcon>
-            <Text size="sm" className={classes.iconLabel}>Giỏ hàng</Text>
+            {/* <Text size="sm" className={classes.iconLabel}>Giỏ hàng</Text> */}
           </div>
 
           <Divider orientation="vertical" color="gray" />
@@ -72,8 +72,8 @@ const Header = () => {
             <ActionIcon size="lg" radius="xl" variant="transparent" color="white">
               <IconUser size={20} />
             </ActionIcon>
-            <Text size="sm" className={classes.iconLabel}>Tài khoản</Text>
-            </Link>
+          </Link>
+            {/* <Text size="sm" className={classes.iconLabel}>Tài khoản</Text> */}
           </div>
         </Group>
       </Group>

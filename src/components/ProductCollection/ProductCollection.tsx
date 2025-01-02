@@ -44,7 +44,7 @@ export function ProductCollection() {
         // <Carousel.Slide>
             <UnstyledButton key={item.title} className={classes.item} h={240}>
                 <Image className={classes.image} src={item.image} h={200} onClick={() => navigator("/products")}></Image>
-                <Text size="xs" mt={7}>
+                <Text size="sm" mt={7}>
                     {item.title}
                 </Text>
             </UnstyledButton>
