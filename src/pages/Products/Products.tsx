@@ -10,6 +10,15 @@ import ProductCard, { Product } from "../../components/ProductCard/ProductCard";
 import { chunk } from "../Blogs/Blogs";
 import { useEffect, useState } from "react";
 import { getListProduct } from "../../api/productApi";
+
+interface IProduct {
+    id: number,
+    name: string;
+    img: string;
+    price: number;
+    type: string;
+}
+
 const data = [
     {
         value: '1',
@@ -18,8 +27,8 @@ const data = [
         collections: [
             { colection: 'Cây ăn quả' },
             { colection: 'Cây hoa' },
-            { colection: 'Cây decor' },
-            { colection: 'Cây hàng rào' },
+            { colection: 'Xương rồng' },
+            { colection: 'Cây sân vườn' },
             { colection: 'Cây thực phẩm' },
             { colection: 'Cây trong nhà' },
             { colection: 'Cây trước hiên' },
@@ -62,12 +71,14 @@ const Products = () => {
     //     // { name: "Lựu Israel - Hạt mọng nước", img: cayLuu, price: 750000 },
     // ];
     const [activePage, setPage] = useState(1);
-    const [produ, setProducts] = useState<Product[]>([]);
+    const [produ, setProducts] = useState<IProduct[]>([]);
     useEffect(() => {
         getListProduct().then((data) => {
+            console.log('data',data);
             const newProd = data.products?.map((item : any) => 
-            ({ id: item.id, name: item.name, img: item.image, price: item.price } as Product))
+            ({ id: item.id, name: item.name, img: item.image, type: item.type.name, price: item.price } as IProduct))
             setProducts(newProd);
+            console.log('newProd',newProd);
         });
     }, [])
     const dataProducts = chunk(produ, 8);
@@ -114,7 +125,7 @@ const Products = () => {
                         </Container>
                     </nav>
                 </GridCol>
-                <GridCol span={{ base: 12, xs: 9, sm: 9.5 }}>
+                <GridCol span={{ base: 12, xs: 9, sm: 9.5 }} style={{ marginTop: '100px' }}>
                     {/* <ProductCard items={items}/> */}
                     <SimpleGrid cols={{ base: 2, sm: 4 }} m="xl">
                         {
