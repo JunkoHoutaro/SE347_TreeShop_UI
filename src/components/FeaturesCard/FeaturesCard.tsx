@@ -70,7 +70,7 @@ export function FeaturesCards() {
                 </Badge>
             </Group>
 
-            <Title order={2} className={classes.title} ta="center" mt="sm">
+            <Title order={3} className={classes.title} ta="center" mt="sm">
                 Cùng tìm hiểu về chúng tôi
             </Title>
 

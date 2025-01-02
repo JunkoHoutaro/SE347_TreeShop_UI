@@ -8,7 +8,7 @@ import React from "react";
 import { Text, Container, ActionIcon, Group, rem, Image, Title, TypographyStylesProvider, GridCol, Grid } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import classes from "./Footer.module.css";
-import logo from "../../assets/images/logoTree1.png";
+import logo from "../../assets/images/logo.png";
 
 const data = [
     {

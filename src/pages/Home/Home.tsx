@@ -107,7 +107,7 @@ const Home = () => {
         });
     })
     return (
-        <>
+        <div className={classes.homeContainer}>
             <Grid styles={{ inner: { margin: 0, width: '100%' } }}>
                 <GridCol span={{ base: 12, sm: 9 }}>
                     <Banner {...backgroundData} />
@@ -126,7 +126,7 @@ const Home = () => {
 
             <Card withBorder radius="md" className={classes.card} pb={30}>
                 <Container className={classes.button}>
-                    <Title size={"h2"}>Sản phẩm phổ biến</Title>
+                    <Title size={"h3"}>Sản phẩm phổ biến</Title>
                 </Container>
                 <SimpleGrid cols={{ base: 2, xs: 3, sm: 5 }} mt="md">
                     {/* {itemcollection} */}
@@ -141,7 +141,7 @@ const Home = () => {
             <ConfirmModule />
             <Card withBorder radius="md" pb={30}>
                 <Container className={classes.button}>
-                    <Title size={"h2"}>Bài viết hướng dẫn</Title>
+                    <Title size={"h3"}>Bài viết hướng dẫn</Title>
                 </Container>
                 <Container size={"xl"}>
                     <SimpleGrid cols={{ base: 1, xs: 2, sm: 3 }} mt="xl">
@@ -157,7 +157,7 @@ const Home = () => {
                     </Container>
                 </Container>
             </Card>
-        </>
+        </div>
     )
 };
 export default Home;

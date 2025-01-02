@@ -2,7 +2,7 @@
     font-size: rem(34px);
     font-weight: 700;
   
-    @media (max-width: $mantine-breakpoint-sm) {
+    @media (max-width: 576px) {
       font-size: rem(24px);
     }
   }
